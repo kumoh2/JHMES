@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-JhmesApplication<jhmes>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "org.jhsoft.jhmes.JhmesApplication",
+            "projectName": "jhmes",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
