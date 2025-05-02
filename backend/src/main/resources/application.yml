@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.35.237:5432/mesdb
+    username: mesdba
+    password: mesdba
+    driver-class-name: org.postgresql.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: org.jhsoft.jhmes.domain
