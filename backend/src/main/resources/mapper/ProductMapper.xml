@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.jhsoft.jhmes.mapper.ProductMapper">
+
+    <resultMap id="ProductMap" type="org.jhsoft.jhmes.domain.Product">
+        <id     property="productId"   column="productid"/>
+        <result property="productName"   column="productname"/>
+        <result property="unit"          column="unit"/>
+        <result property="description"   column="description"/>
+        <result property="isActive"      column="is_active"/>
+        <result property="createdBy"     column="created_by"/>
+        <result property="createdAt"     column="created_at"/>
+        <result property="updatedBy"     column="updated_by"/>
+        <result property="updatedAt"     column="updated_at"/>
+    </resultMap>
+
+    <!-- ① INSERT -->
+    <insert id="insert" parameterType="Product">
+        INSERT INTO product (
+            productid, productname, unit, description,
+            is_active, created_by, created_at, updated_by, updated_at
+        ) VALUES (
+            #{productId}, #{productName}, #{unit}, #{description},
+            #{isActive}, #{createdBy}, NOW(), #{updatedBy}, NOW()
+        )
+    </insert>
+
+    <!-- ② SELECT ONE -->
+    <select id="findById" resultMap="ProductMap">
+        SELECT * FROM product WHERE productid = #{productId}
+    </select>
+
+    <!-- ③ SELECT ALL -->
+    <select id="findAll" resultMap="ProductMap">
+        SELECT * FROM product ORDER BY productid
+    </select>
+
+    <!-- ④ UPDATE -->
+    <update id="update" parameterType="Product">
+        UPDATE product
+        SET  productname    = #{productName},
+             unit            = #{unit},
+             description     = #{description},
+             is_active       = #{isActive},
+             updated_by      = #{updatedBy},
+             updated_at      = NOW()
+        WHERE productid = #{productId}
+    </update>
+
+    <!-- ⑤ DELETE -->
+    <delete id="delete">
+        DELETE FROM product WHERE productid = #{productId}
+    </delete>
+</mapper>
