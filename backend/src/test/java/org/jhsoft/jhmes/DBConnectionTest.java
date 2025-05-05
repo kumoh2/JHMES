@@ -40,7 +40,7 @@ class DBConnectionTest {
     @DisplayName("3. product 테이블에서 한 행 조회 테스트")
     void testSelectFromProduct() {
         String code = jdbcTemplate.queryForObject(
-            "SELECT product_code FROM product LIMIT 1", String.class);
+            "SELECT * FROM product LIMIT 1", String.class);
         assertNotNull(code, "product_code는 null이 아니어야 합니다");
     }
 }
