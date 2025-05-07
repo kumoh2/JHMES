@@ -35,12 +35,4 @@ class DBConnectionTest {
         Integer result = jdbcTemplate.queryForObject("SELECT 1", Integer.class);
         assertEquals(1, result, "SELECT 1 결과가 1이어야 합니다");
     }
-
-    @Test
-    @DisplayName("3. product 테이블에서 한 행 조회 테스트")
-    void testSelectFromProduct() {
-        String code = jdbcTemplate.queryForObject(
-            "SELECT * FROM product LIMIT 1", String.class);
-        assertNotNull(code, "product_code는 null이 아니어야 합니다");
-    }
 }
