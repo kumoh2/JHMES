@@ -1,4 +1,4 @@
-# Mini MES 프로젝트 (React + Spring Boot + MyBatis + PostgreSQL)
+# Mini MES 프로젝트
 
 React, Spring Boot, MyBatis, PostgreSQL을 활용한 제조 실행 시스템(MES) 미니 프로젝트.
 
